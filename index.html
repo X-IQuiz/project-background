@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!-- For mobile scaling -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>X-IQuiz (XIQ): IQ Memecoin</title>
 
   <!-- Google Fonts for Sci-Fi look -->
-  <!-- "Press Start 2P" (retro-futuristic) + "Share Tech Mono" (futuristic monospace) -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"
@@ -23,21 +25,21 @@
 
     html, body {
       height: 100%;
-      overflow-x: hidden; /* Prevent horizontal scroll from angled sections */
+      overflow-x: hidden; 
       font-family: 'Share Tech Mono', monospace;
-      background: #01081a; /* Darkest background behind everything */
+      background: #01081a; 
       color: #ffffff;
       line-height: 1.6;
+      font-size: 18px; 
     }
 
-    /* Headings use Press Start 2P for a retro-futuristic vibe */
     h1, h2, h3 {
       font-family: 'Press Start 2P', monospace;
       letter-spacing: 1px;
     }
 
     a {
-      color: #01FFC3; /* Neon cyan */
+      color: #01FFC3; 
       text-decoration: none;
     }
     a:hover {
@@ -59,20 +61,18 @@
       justify-content: center;
       backdrop-filter: blur(8px);
     }
-
     nav ul {
       display: flex;
       gap: 1rem;
       list-style: none;
     }
-
     nav ul li a {
       font-weight: bold;
       font-size: 0.9rem;
       transition: color 0.3s;
     }
     nav ul li a:hover {
-      color: #39FF14; /* Neon green on hover */
+      color: #39FF14; 
     }
 
     /********************************************
@@ -80,14 +80,12 @@
      ********************************************/
     section {
       position: relative;
-      padding: 6rem 2rem 4rem; /* Extra top padding for nav spacing */
+      padding: 6rem 2rem 4rem; 
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-
-    /* Create angled stripes using pseudo-elements */
     section::before {
       content: "";
       position: absolute;
@@ -101,7 +99,6 @@
       opacity: 0.7;
     }
 
-    /* We'll define unique backgrounds for each section */
     #hero::before {
       background: linear-gradient(135deg, #010d19 0%, #022f4f 50%, #01081a 100%);
     }
@@ -114,23 +111,20 @@
     #about-xiq::before {
       background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
     }
-    /* Removed #dr-kim-saga */
     #elevating-iq::before {
       background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
     }
     #community-disclaimer::before {
       background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
     }
-    /* Removed #media-screenshots */
 
     /********************************************
      * HERO SECTION
      ********************************************/
-    /* HERO IMAGE WRAPPER & IMAGE */
     .hero-image-wrapper {
       display: flex;
       justify-content: center;
-      margin-bottom: 2rem; /* space between image and headline */
+      margin-bottom: 2rem; 
     }
     .hero-image {
       max-width: 250px;
@@ -141,8 +135,8 @@
     }
 
     #hero h1 {
-      color: #39FF14; /* Neon green */
-      font-size: 1.8rem;
+      color: #39FF14; 
+      font-size: 2rem; 
       margin-bottom: 1rem;
       text-shadow: 0 0 6px #39FF14;
       text-align: center;
@@ -166,14 +160,14 @@
       display: inline-block;
       padding: 0.8rem 1.2rem;
       border-radius: 5px;
-      background-color: #01FFC3; /* Neon cyan */
+      background-color: #01FFC3; 
       color: #000000;
       font-weight: bold;
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
     .cta-buttons a:hover {
       transform: scale(1.05);
-      background-color: #39FF14; /* Neon green on hover */
+      background-color: #39FF14; 
       color: #000;
     }
 
@@ -181,8 +175,8 @@
      * SECTION TITLES
      ********************************************/
     .section-title {
-      color: #01FFC3; /* Neon cyan */
-      font-size: 1.2rem;
+      color: #01FFC3; 
+      font-size: 1.4rem; 
       margin-bottom: 1rem;
       text-shadow: 0 0 6px #01FFC3;
       text-transform: uppercase;
@@ -197,11 +191,10 @@
       margin: 0 auto;
       text-align: left;
     }
-
     .content-block p {
       margin-bottom: 1rem;
+      font-size: 1rem; 
     }
-
     .content-block ul {
       margin-left: 1.5rem;
       margin-bottom: 1rem;
@@ -209,9 +202,8 @@
     .content-block ul li {
       margin-bottom: 0.5rem;
     }
-
     .content-block strong {
-      color: #39FF14; /* Emphasize with neon green */
+      color: #39FF14; 
     }
 
     /********************************************
@@ -220,7 +212,7 @@
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      font-size: 0.8rem;
+      font-size: 0.9rem; 
       background: rgba(0, 0, 0, 0.6);
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 -1px 20px rgba(1, 255, 195, 0.1);
@@ -237,57 +229,68 @@
       scroll-behavior: smooth;
     }
 
-    /* Adjust spacing for smaller screens */
+    /********************************************
+     * MEDIA QUERIES
+     ********************************************/
     @media (max-width: 768px) {
       nav ul {
         flex-wrap: wrap;
+      }
+      /* Increase top padding on the hero section for extra space under the nav. */
+      #hero {
+        padding-top: 8rem; /* add extra space under nav bar on small screens */
       }
       .cta-buttons a {
         margin-bottom: 0.5rem;
       }
       section {
-        padding: 5rem 1rem 3rem;
+        padding: 4rem 1rem 3rem;
       }
       #hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem; 
       }
       .hero-image {
         max-width: 200px;
+      }
+      .section-title {
+        font-size: 1.2rem;
+      }
+      footer {
+        font-size: 1rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- FIXED NAV BAR -->
+  <!-- NAV BAR -->
   <nav>
     <ul>
       <li><a href="#hero">Home</a></li>
       <li><a href="#origin-story">Origin Story</a></li>
       <li><a href="#mission-vision">Mission & Vision</a></li>
       <li><a href="#about-xiq">About XIQ</a></li>
-      <!-- REMOVED The Saga LINK -->
       <li><a href="#elevating-iq">Elevating IQ</a></li>
       <li><a href="#community-disclaimer">Community</a></li>
-      <!-- REMOVED Media LINK -->
     </ul>
   </nav>
 
   <!-- HERO SECTION -->
   <section id="hero">
-    <!-- New Hero Image Wrapper -->
     <div class="hero-image-wrapper">
-      <!-- Replace 'images/iq_quiz_mockup.jpg' with your actual path -->
-      <img 
-        src="IMG_5322.jpg" 
-        alt="IQ Quiz Mockup" 
+      <!-- Update path to your actual image -->
+      <img
+        src="IMG_5322.jpg"
+        alt="IQ Quiz Mockup"
         class="hero-image"
       />
     </div>
 
     <h1>X-IQuiz (XIQ): A Memecoin From the Future</h1>
     <p>
-      Inspired by Dr. Younghoon Kim’s “X-IQuiz Challenge” (from the world’s highest IQ holder at 276), X-IQuiz (XIQ) catapults into a futuristic realm where quizzes, memes, and crypto converge in a cosmic dance of curiosity and community.
+      Inspired by Dr. Younghoon Kim’s “X-IQuiz Challenge” (from the world’s highest IQ holder at 276), 
+      X-IQuiz (XIQ) catapults into a futuristic realm where quizzes, memes, and crypto converge in a 
+      cosmic dance of curiosity and community.
     </p>
     <div class="cta-buttons">
       <a href="https://pump.fun/coin/5vmpCrFNLEfHmrsDaQBboo2MfKZ23DyRV5VM2Mfwpump">Buy XIQ</a>
@@ -296,32 +299,31 @@
   </section>
 
   <!-- ORIGIN STORY -->
-<section id="origin-story">
-  <h2 class="section-title">The Origin Story</h2>
-  <div class="content-block">
-    <p>
-      On January 1st, while voyaging through the digital galaxy of X (formerly Twitter), we encountered Dr. Younghoon Kim’s mesmerizing IQ of 270.  
-      Fascinated by his puzzle-like “X-IQuiz Challenge,” we forged X-IQuiz (XIQ) to capture that cosmic spark.
-    </p>
-    <p>
-      A small misstep—“X-IQuiz by YHK”—led to an account suspension and a clash with Dr. Kim’s followers.  
-      Despite our attempts to clarify, we couldn’t erase XIQ—<strong>blockchain is immutable</strong>.  
-      In a twist of fate, Dr. Kim later embraced memes, calling himself the <strong>“IQ man.”</strong>
-    </p>
-    <p>
-      <strong>Key Takeaway:</strong> X-IQuiz remains a community-driven project, powered by meme culture,  
-      quiz enthusiasts, and the energy of decentralized technology.
-    </p>
-    <!-- NEW REDDIT LINK -->
-    <p>
-      For the <strong>full story</strong>, check out our 
-      <a href="https://www.reddit.com/r/SolanaMemeCoins/s/4yJVutd6DJ" target="_blank" rel="noopener noreferrer">
-        Reddit post
-      </a>.
-    </p>
-  </div>
-</section>
-
+  <section id="origin-story">
+    <h2 class="section-title">The Origin Story</h2>
+    <div class="content-block">
+      <p>
+        On January 1st, while voyaging through the digital galaxy of X (formerly Twitter), 
+        we encountered Dr. Younghoon Kim’s mesmerizing IQ of 270.  
+        Fascinated by his puzzle-like “X-IQuiz Challenge,” we forged X-IQuiz (XIQ) to capture that cosmic spark.
+      </p>
+      <p>
+        A small misstep—“X-IQuiz by YHK”—led to an account suspension and a clash with Dr. Kim’s followers.  
+        Despite our attempts to clarify, we couldn’t erase XIQ—<strong>blockchain is immutable</strong>.  
+        In a twist of fate, Dr. Kim later embraced memes, calling himself the <strong>“IQ man.”</strong>
+      </p>
+      <p>
+        <strong>Key Takeaway:</strong> X-IQuiz remains a community-driven project, powered by meme culture,  
+        quiz enthusiasts, and the energy of decentralized technology.
+      </p>
+      <p>
+        For the <strong>full story</strong>, check out our 
+        <a href="https://www.reddit.com/r/SolanaMemeCoins/s/4yJVutd6DJ" target="_blank" rel="noopener noreferrer">
+          Reddit post
+        </a>.
+      </p>
+    </div>
+  </section>
 
   <!-- MISSION & VISION -->
   <section id="mission-vision">
@@ -362,9 +364,7 @@
     </div>
   </section>
 
-  <!-- REMOVED: The Saga with Dr. Younghoon Kim -->
-
-  <!-- ELEVATING HUMANITY'S IQ (NEW SECTION) -->
+  <!-- ELEVATING HUMANITY'S IQ -->
   <section id="elevating-iq">
     <h2 class="section-title">Elevating Humanity's IQ</h2>
     <div class="content-block">
@@ -418,8 +418,6 @@
     </div>
   </section>
 
-  <!-- REMOVED: Media & Screenshots Section -->
-
   <!-- FOOTER -->
   <footer>
     © 2025 X-IQuiz (XIQ). Built with cosmic curiosity, quantum laughs, and unstoppable blockchain.
@@ -427,3 +425,4 @@
 
 </body>
 </html>
+
