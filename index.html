@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>X-IQuiz (XIQ): IQ Memecoin</title>
+
+  <!-- Google Fonts for Sci-Fi look -->
+  <!-- "Press Start 2P" (retro-futuristic) + "Share Tech Mono" (futuristic monospace) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /********************************************
+     * GLOBAL STYLES
+     ********************************************/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden; /* Prevent horizontal scroll from angled sections */
+      font-family: 'Share Tech Mono', monospace;
+      background: #01081a; /* Darkest background behind everything */
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    /* Headings use Press Start 2P for a retro-futuristic vibe */
+    h1, h2, h3 {
+      font-family: 'Press Start 2P', monospace;
+      letter-spacing: 1px;
+    }
+
+    a {
+      color: #01FFC3; /* Neon cyan */
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /********************************************
+     * FIXED NAVIGATION
+     ********************************************/
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 999;
+      box-shadow: 0 0 15px rgba(1, 255, 195, 0.3);
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    nav ul li a {
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #39FF14; /* Neon green on hover */
+    }
+
+    /********************************************
+     * ANIMATED ANGLED SECTIONS
+     ********************************************/
+    section {
+      position: relative;
+      padding: 6rem 2rem 4rem; /* Extra top padding for nav spacing */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Create angled stripes using pseudo-elements */
+    section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      transform-origin: left center;
+      transform: skewY(-6deg);
+      z-index: -1;
+      opacity: 0.7;
+    }
+
+    /* We'll define unique backgrounds for each section */
+    #hero::before {
+      background: linear-gradient(135deg, #010d19 0%, #022f4f 50%, #01081a 100%);
+    }
+    #origin-story::before {
+      background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
+    }
+    #mission-vision::before {
+      background: linear-gradient(135deg, #01081a 0%, #022f4f 80%);
+    }
+    #about-xiq::before {
+      background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
+    }
+    /* Removed #dr-kim-saga */
+    #elevating-iq::before {
+      background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
+    }
+    #community-disclaimer::before {
+      background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
+    }
+    /* Removed #media-screenshots */
+
+    /********************************************
+     * HERO SECTION
+     ********************************************/
+    /* HERO IMAGE WRAPPER & IMAGE */
+    .hero-image-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem; /* space between image and headline */
+    }
+    .hero-image {
+      max-width: 250px;
+      width: 100%;
+      border: 2px solid #01FFC3;
+      border-radius: 5px;
+      box-shadow: 0 0 20px rgba(1, 255, 195, 0.3);
+    }
+
+    #hero h1 {
+      color: #39FF14; /* Neon green */
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px #39FF14;
+      text-align: center;
+    }
+
+    #hero p {
+      font-size: 1rem;
+      margin: 0 auto 1.5rem auto;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .cta-buttons a {
+      display: inline-block;
+      padding: 0.8rem 1.2rem;
+      border-radius: 5px;
+      background-color: #01FFC3; /* Neon cyan */
+      color: #000000;
+      font-weight: bold;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .cta-buttons a:hover {
+      transform: scale(1.05);
+      background-color: #39FF14; /* Neon green on hover */
+      color: #000;
+    }
+
+    /********************************************
+     * SECTION TITLES
+     ********************************************/
+    .section-title {
+      color: #01FFC3; /* Neon cyan */
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px #01FFC3;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /********************************************
+     * CONTENT BLOCKS
+     ********************************************/
+    .content-block {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .content-block p {
+      margin-bottom: 1rem;
+    }
+
+    .content-block ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .content-block ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .content-block strong {
+      color: #39FF14; /* Emphasize with neon green */
+    }
+
+    /********************************************
+     * FOOTER
+     ********************************************/
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.8rem;
+      background: rgba(0, 0, 0, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 -1px 20px rgba(1, 255, 195, 0.1);
+    }
+    footer a {
+      margin: 0 0.5rem;
+      color: #01FFC3;
+    }
+
+    /********************************************
+     * SCROLL BEHAVIOR
+     ********************************************/
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Adjust spacing for smaller screens */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-wrap: wrap;
+      }
+      .cta-buttons a {
+        margin-bottom: 0.5rem;
+      }
+      section {
+        padding: 5rem 1rem 3rem;
+      }
+      #hero h1 {
+        font-size: 1.5rem;
+      }
+      .hero-image {
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED NAV BAR -->
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#origin-story">Origin Story</a></li>
+      <li><a href="#mission-vision">Mission & Vision</a></li>
+      <li><a href="#about-xiq">About XIQ</a></li>
+      <!-- REMOVED The Saga LINK -->
+      <li><a href="#elevating-iq">Elevating IQ</a></li>
+      <li><a href="#community-disclaimer">Community</a></li>
+      <!-- REMOVED Media LINK -->
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <!-- New Hero Image Wrapper -->
+    <div class="hero-image-wrapper">
+      <!-- Replace 'images/iq_quiz_mockup.jpg' with your actual path -->
+      <img 
+        src="images/iq_quiz_mockup.jpg" 
+        alt="IQ Quiz Mockup" 
+        class="hero-image"
+      />
+    </div>
+
+    <h1>X-IQuiz (XIQ): A Memecoin From the Future</h1>
+    <p>
+      Inspired by Dr. Younghoon Kim’s “X-IQuiz Challenge” (from the world’s highest IQ holder at 276), X-IQuiz (XIQ) catapults into a futuristic realm where quizzes, memes, and crypto converge in a cosmic dance of curiosity and community.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://pump.fun/coin/5vmpCrFNLEfHmrsDaQBboo2MfKZ23DyRV5VM2Mfwpump">Buy XIQ</a>
+      <a href="https://t.me/xiquiz">Join Community</a>
+    </div>
+  </section>
+
+  <!-- ORIGIN STORY -->
+<section id="origin-story">
+  <h2 class="section-title">The Origin Story</h2>
+  <div class="content-block">
+    <p>
+      On January 1st, while voyaging through the digital galaxy of X (formerly Twitter), we encountered Dr. Younghoon Kim’s mesmerizing IQ of 270.  
+      Fascinated by his puzzle-like “X-IQuiz Challenge,” we forged X-IQuiz (XIQ) to capture that cosmic spark.
+    </p>
+    <p>
+      A small misstep—“X-IQuiz by YHK”—led to an account suspension and a clash with Dr. Kim’s followers.  
+      Despite our attempts to clarify, we couldn’t erase XIQ—<strong>blockchain is immutable</strong>.  
+      In a twist of fate, Dr. Kim later embraced memes, calling himself the <strong>“IQ man.”</strong>
+    </p>
+    <p>
+      <strong>Key Takeaway:</strong> X-IQuiz remains a community-driven project, powered by meme culture,  
+      quiz enthusiasts, and the energy of decentralized technology.
+    </p>
+    <!-- NEW REDDIT LINK -->
+    <p>
+      For the <strong>full story</strong>, check out our 
+      <a href="https://www.reddit.com/r/SolanaMemeCoins/s/4yJVutd6DJ" target="_blank" rel="noopener noreferrer">
+        Reddit post
+      </a>.
+    </p>
+  </div>
+</section>
+
+
+  <!-- MISSION & VISION -->
+  <section id="mission-vision">
+    <h2 class="section-title">Mission & Vision</h2>
+    <div class="content-block">
+      <p><strong>The X-IQuiz Mission:</strong> Memes, Community, and Smart Fun</p>
+      <ul>
+        <li><strong>Spread Memetic Joy</strong> – Uniting digital travelers through the universal language of memes.</li>
+        <li><strong>Amplify Intellectual Fun</strong> – Fusing quiz-based engagement with crypto excitement at hyper speed.</li>
+        <li><strong>Foster a Supportive Community</strong> – From retro arcade meme fans to puzzle geniuses, all are welcome.</li>
+        <li><strong>Push Blockchain Boundaries</strong> – Showcasing how spontaneous ideas can thrive on immutable networks.</li>
+      </ul>
+      <p>
+        <strong>Vision:</strong> We strive to pioneer a memecoin merging vibrant online culture with unstoppable decentralized tech,  
+        forging a new galaxy of creativity and collective fun.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT XIQ -->
+  <section id="about-xiq">
+    <h2 class="section-title">About X-IQuiz (XIQ)</h2>
+    <div class="content-block">
+      <p>
+        <strong>XIQ</strong> is a memecoin inspired by Dr. Kim’s “X-IQuiz Challenge.” Unlike typical memecoins,  
+        XIQ combined challenging IQ Quiz, meme, and the unstoppable force of blockchain.
+      </p>
+      <ul>
+        <li><strong>Token Name:</strong> X-IQuiz (XIQ)</li>
+        <li><strong>Contract Address:</strong> 5vmpCrFNLEfHmrsDaQBboo2MfKZ23DyRV5VM2Mfwpump</li>
+        <li><strong>Blockchain:</strong> Solana</li>
+        <li><strong>Supply:</strong> 1 billion XIQ</li>
+      </ul>
+      <p>
+        <em>Note:</em> We have no official affiliation with Dr. Younghoon Kim.  
+        XIQ is a standalone, community-focused token born of cosmic curiosity.
+      </p>
+    </div>
+  </section>
+
+  <!-- REMOVED: The Saga with Dr. Younghoon Kim -->
+
+  <!-- ELEVATING HUMANITY'S IQ (NEW SECTION) -->
+  <section id="elevating-iq">
+    <h2 class="section-title">Elevating Humanity's IQ</h2>
+    <div class="content-block">
+      <p>
+        The heart of <strong>X-IQuiz (XIQ)</strong> lies in our bold aspiration: to raise humanity’s average IQ by
+        <strong>30%</strong> through fun, memetic engagement, and decentralized collaboration. Although the global
+        IQ average sits around <em>70–130</em>, we believe that a mix of <strong>playful quizzes</strong>, 
+        <strong>community interaction</strong>, and <strong>blockchain-driven incentives</strong> can help shift 
+        that baseline upward.
+      </p>
+      <p>
+        Our inspiration stems from <strong>Dr. Younghoon Kim</strong>  and his groundbreaking
+        <em>X-IQuiz Challenge</em>. Witnessing his unmatched IQ of 276, and the curiosity it sparked—laid the 
+        foundation for our project.
+      </p>
+      <p>
+        As we continue to evolve <strong>XIQ</strong>, we stay true to our 
+        <a href="#mission-vision">Mission & Vision</a>: merging <em>memetic joy</em>, <em>intellectual fun</em>, 
+        and <em>unstoppable blockchain tech</em> into a thriving ecosystem. We even offered 
+        <strong>42 million tokens</strong> to Dr. Kim—a gesture of goodwill and an invitation to shape this 
+        community together.
+      </p>
+      <p>
+        Ultimately, X-IQuiz (XIQ) aims to transform the digital realm into a hub for higher cognition. 
+        It’s not just about tokens or trivia; it’s about harnessing <strong>decentralized technology</strong> 
+        and viral culture to redefine how we learn, share knowledge, and unlock our collective potential.
+      </p>
+      <p>
+        <strong>Join us</strong> on this journey—be part of a movement that marries 
+        <strong>memetic culture</strong> with <strong>self-improvement</strong>, all in tribute to 
+        the brilliant minds that sparked our quest.
+      </p>
+    </div>
+  </section>
+
+  <!-- COMMUNITY & DISCLAIMER -->
+  <section id="community-disclaimer">
+    <h2 class="section-title">Community & Disclaimer</h2>
+    <div class="content-block">
+      <ul>
+        <li><strong>Community-First</strong> – We welcome open dialogue, collaboration, and shared fun.</li>
+        <li><strong>Transparency</strong> – We acknowledge our story, missteps included, to build honest relationships.</li>
+        <li><strong>No Financial Advice</strong> – XIQ is a memecoin; its value is not guaranteed. Always DYOR.</li>
+        <li><strong>Not Affiliated With Dr. Kim</strong> – Inspired by his challenge, but operating independently.</li>
+      </ul>
+      <p>Join our community:</p>
+      <ul>
+        <li><a href="https://t.me/xiquiz">Telegram</a></li>
+        <li><a href="https://x.com/xiq_token?s=21">X</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- REMOVED: Media & Screenshots Section -->
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 X-IQuiz (XIQ). Built with cosmic curiosity, quantum laughs, and unstoppable blockchain.
+  </footer>
+
+</body>
+</html>
