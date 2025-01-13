@@ -38,8 +38,9 @@
       letter-spacing: 1px;
     }
 
+    /* Changed from #01FFC3 (teal) to #FF4500 (red-orange) */
     a {
-      color: #01FFC3; 
+      color: #FF4500; 
       text-decoration: none;
     }
     a:hover {
@@ -55,7 +56,7 @@
       width: 100%;
       background-color: rgba(0,0,0,0.6);
       z-index: 999;
-      box-shadow: 0 0 15px rgba(1, 255, 195, 0.3);
+      box-shadow: 0 0 15px rgba(255, 69, 0, 0.3); /* #FF4500 at 0.3 opacity */
       padding: 0.5rem;
       display: flex;
       justify-content: center;
@@ -66,13 +67,14 @@
       gap: 1rem;
       list-style: none;
     }
+    /* Changed hover color from #39FF14 to #FF4500 */
     nav ul li a {
       font-weight: bold;
       font-size: 0.9rem;
       transition: color 0.3s;
     }
     nav ul li a:hover {
-      color: #39FF14; 
+      color: #FF4500; 
     }
 
     /********************************************
@@ -99,22 +101,23 @@
       opacity: 0.7;
     }
 
+    /* Changed from #010d19..#022f4f.. to #010d19..#4f1901.. for the teal backgrounds */
     #hero::before {
-      background: linear-gradient(135deg, #010d19 0%, #022f4f 50%, #01081a 100%);
+      background: linear-gradient(135deg, #010d19 0%, #4f1901 50%, #01081a 100%);
     }
     #origin-story::before {
-      background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
+      background: linear-gradient(135deg, #4f1901 0%, #01081a 80%);
     }
     #mission-vision::before {
-      background: linear-gradient(135deg, #01081a 0%, #022f4f 80%);
+      background: linear-gradient(135deg, #01081a 0%, #4f1901 80%);
     }
     #about-xiq::before {
-      background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
+      background: linear-gradient(135deg, #4f1901 0%, #01081a 80%);
     }
     /* The #elevating-iq section was removed,
        so no skew background needed there. */
     #community-disclaimer::before {
-      background: linear-gradient(135deg, #022f4f 0%, #01081a 80%);
+      background: linear-gradient(135deg, #4f1901 0%, #01081a 80%);
     }
 
     /********************************************
@@ -125,19 +128,21 @@
       justify-content: center;
       margin-bottom: 2rem; 
     }
+    /* Changed border from #01FFC3 to #FF4500 + shadow color */
     .hero-image {
       max-width: 250px;
       width: 100%;
-      border: 2px solid #01FFC3;
+      border: 2px solid #FF4500;
       border-radius: 5px;
-      box-shadow: 0 0 20px rgba(1, 255, 195, 0.3);
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
     }
 
+    /* Changed from #39FF14 (green) to #FF4500 (red-orange) */
     #hero h1 {
-      color: #39FF14; 
+      color: #FF4500; 
       font-size: 2rem; 
       margin-bottom: 1rem;
-      text-shadow: 0 0 6px #39FF14;
+      text-shadow: 0 0 6px #FF4500;
       text-align: center;
     }
 
@@ -155,29 +160,32 @@
       margin-top: 1rem;
       flex-wrap: wrap;
     }
+    /* Button default changed from #01FFC3 to #FF4500,
+       hover changed from #39FF14 to something like #ff7030 (slightly brighter) */
     .cta-buttons a {
       display: inline-block;
       padding: 0.8rem 1.2rem;
       border-radius: 5px;
-      background-color: #01FFC3; 
+      background-color: #FF4500; 
       color: #000000;
       font-weight: bold;
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
     .cta-buttons a:hover {
       transform: scale(1.05);
-      background-color: #39FF14; 
+      background-color: #ff7030; 
       color: #000;
     }
 
     /********************************************
      * SECTION TITLES
      ********************************************/
+    /* Changed from #01FFC3 to #FF4500 + glow */
     .section-title {
-      color: #01FFC3; 
+      color: #FF4500; 
       font-size: 1.4rem; 
       margin-bottom: 1rem;
-      text-shadow: 0 0 6px #01FFC3;
+      text-shadow: 0 0 6px #FF4500;
       text-transform: uppercase;
       text-align: center;
     }
@@ -201,8 +209,9 @@
     .content-block ul li {
       margin-bottom: 0.5rem;
     }
+    /* Changed from #39FF14 to #FF4500 */
     .content-block strong {
-      color: #39FF14; 
+      color: #FF4500; 
     }
 
     /********************************************
@@ -213,12 +222,13 @@
       padding: 2rem 1rem;
       font-size: 0.9rem; 
       background: rgba(0, 0, 0, 0.6);
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 -1px 20px rgba(1, 255, 195, 0.1);
+      /* was #01FFC3 => now #FF4500 for links */
+      border-top: 1px solid rgba(255, 69, 0, 0.2);
+      box-shadow: 0 -1px 20px rgba(255, 69, 0, 0.1);
     }
     footer a {
       margin: 0 0.5rem;
-      color: #01FFC3;
+      color: #FF4500;
     }
 
     /********************************************
@@ -388,5 +398,6 @@
 
 </body>
 </html>
+
 
 
